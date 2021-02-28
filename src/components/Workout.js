@@ -47,11 +47,7 @@ const SelectedWorkout = ({ workout }) => {
                         </Header>
                         <List link size='medium' selection>
                           {r.exercises.map((e, i) => (
-                            <ListItem key={i}>
-                              <a href={e.url} target='_blank' rel='noreferrer'>
-                                {e.description}
-                              </a>
-                            </ListItem>
+                            <ListItem key={i}>{e.description}</ListItem>
                           ))}
                         </List>
                       </GridColumn>
