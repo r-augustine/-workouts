@@ -23,8 +23,6 @@ const SelectedWorkout = ({ workout }) => {
         </CardMeta>
       </CardContent>
       <CardContent>
-        <p style={{ fontSize: "1.1rem" }}>{workout?.notes}</p>
-
         {workout?.days.map((d, i) => (
           <div key={i}>
             <Divider horizontal>
