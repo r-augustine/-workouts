@@ -173,7 +173,7 @@ export const workouts = [
       {
         description: "Sunday: Legs/Cardio",
         off: false,
-        warmup: null,
+        warmup: "",
         routine: [
           {
             name: "Legs",
@@ -277,7 +277,7 @@ export const workouts = [
       {
         description: "Friday: Shoulders/Triceps/Calves/Cardio",
         off: false,
-        warmup: "Dumbbell Press 3 Sets",
+        warmup: "",
         routine: [
           {
             name: "Shoulders",
