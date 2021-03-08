@@ -15,9 +15,6 @@ const CardItem = ({ workout, fluid, onClick }) => {
         <CardMeta>
           {workout.goal}/{workout.level}
         </CardMeta>
-        <CardDescription>
-          {workout.notes && workout.notes.substr(0, 150).concat("...")}
-        </CardDescription>
       </CardContent>
     </Card>
   );

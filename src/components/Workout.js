@@ -38,7 +38,7 @@ const SelectedWorkout = ({ workout }) => {
                     {d.warmup}
                   </p>
                 )}
-                <Grid>
+                <Grid columns={2}>
                   <GridRow columns='equal'>
                     {d.routine.map((r, i) => (
                       <GridColumn>
