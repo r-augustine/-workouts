@@ -13,8 +13,8 @@ import {
   GridColumn,
 } from "semantic-ui-react";
 
-const SelectedWorkout = ({ workout }) => {
-  return (
+const SelectedWorkout = ({ workout, modal = false }) => {
+  return !modal ? (
     <Card fluid>
       <CardContent>
         <CardHeader>{workout?.name}</CardHeader>
@@ -39,13 +39,11 @@ const SelectedWorkout = ({ workout }) => {
                 <Grid columns={2}>
                   <GridRow columns='equal'>
                     {d.routine.map((r, i) => (
-                      <GridColumn>
-                        <Header size='tiny' key={i}>
-                          {r.name}
-                        </Header>
+                      <GridColumn key={`${r.name}-${i}`}>
+                        <Header size='tiny'>{r.name}</Header>
                         <List link size='medium' selection>
                           {r.exercises.map((e, i) => (
-                            <ListItem key={i}>{e.description}</ListItem>
+                            <ListItem key={`ex-${i}`}>{e.description}</ListItem>
                           ))}
                         </List>
                       </GridColumn>
@@ -58,6 +56,40 @@ const SelectedWorkout = ({ workout }) => {
         ))}
       </CardContent>
     </Card>
+  ) : (
+    <>
+      {workout?.days.map((d, i) => (
+        <div key={i}>
+          <Divider horizontal>
+            <Header size='medium'>{d.description}</Header>
+          </Divider>
+          {!d.off && (
+            <>
+              {d.warmup && (
+                <p style={{ marginBottom: "1.6em" }}>
+                  <span style={{ fontWeight: "bold" }}>Warm-up:</span>{" "}
+                  {d.warmup}
+                </p>
+              )}
+              <Grid columns={2}>
+                <GridRow columns='equal'>
+                  {d.routine.map((r, i) => (
+                    <GridColumn key={`${r.name}-${i}`}>
+                      <Header size='tiny'>{r.name}</Header>
+                      <List link size='medium' selection>
+                        {r.exercises.map((e, i) => (
+                          <ListItem key={`ex-${i}`}>{e.description}</ListItem>
+                        ))}
+                      </List>
+                    </GridColumn>
+                  ))}
+                </GridRow>
+              </Grid>
+            </>
+          )}
+        </div>
+      ))}
+    </>
   );
 };
 
