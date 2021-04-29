@@ -53,7 +53,7 @@ const App = () => {
             <GridColumn width={screenSize === "mobile" ? 16 : 6}>
               {screenSize && screenSize === "mobile" && (
                 <Modal open={open} onClose={() => setOpen(false)} closeIcon>
-                  <Modal.Header>{selected.name}</Modal.Header>
+                  <Modal.Header>{selected?.name}</Modal.Header>
                   <Modal.Content>
                     <SelectedWorkout workout={selected} modal={true} />
                   </Modal.Content>
